@@ -1,7 +1,7 @@
 # OdeToFood
 Repositório das atividades realizadas no curso ASP.NET Core fundamentals na Pluralsight
 
-##Atividade do modulo 2
+## Atividade do modulo 2
 
 ☑️ Criar entidades e razor Page
 
