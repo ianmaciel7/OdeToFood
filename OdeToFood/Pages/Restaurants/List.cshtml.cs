@@ -17,17 +17,19 @@ namespace OdeToFood.Pages.Restaurants
         public string Message { get; set; }
         public IEnumerable<Restaurant> Restaurants;
 
+        [BindProperty(SupportsGet = true)]
+        public string SearchTerm { get; set; }
+
         public ListModel(IConfiguration config, IRestaurantData restaurantData)
         {
             this.config = config;
             this.restaurantData = restaurantData;
         }
 
-        
         public void OnGet()
         {
             Message = config["Message"];
-            Restaurants = restaurantData.GetAll();
+            Restaurants = restaurantData.GetRestaurantsByName(SearchTerm);
         }
     }
 }
