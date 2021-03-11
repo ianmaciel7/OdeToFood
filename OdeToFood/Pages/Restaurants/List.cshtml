@@ -29,11 +29,15 @@
                     @restaurant.Cuisine
                 </p>
             </td>
-            <td class="align-text-top"><a class="btn btn-lg p-0" asp-page="./Detail" asp-route-restaurantId="@restaurant.Id"><i class="bi bi-clipboard-plus h2 text-info"></i></a></td>
+            <td class="align-text-top">
+                <a class="btn btn-lg p-0" asp-page="./Detail" asp-route-restaurantId="@restaurant.Id"><i class="bi bi-clipboard-plus h2 text-info"></i></a>
+                <a class="btn btn-lg p-0" asp-page="./Edit" asp-route-restaurantId="@restaurant.Id"><i class="bi bi-pencil-square h2 text-info"></i></a>
+            </td>
         </tr>
     }
 </table>
 
+<a class="btn btn-primary" asp-page="./Edit">Add New</a>
 
 <div>
     @Model.Message
