@@ -23,7 +23,7 @@ Repositório das atividades realizadas no curso ASP.NET Core fundamentals na Plu
 
 ## Atividade do modulo 4
 
-☑️ Possibilatar a edição dos restaurantes ao clicar no respectivo link dentro das linhas da tabela *Restaurants/List*. Que deve conter conter campo *Cuisine* como *select* e restante sendo *inputs*, a página deve permitir a rota */restaurants/Edit/{id}* e caso não encontre o restaurante com a *id* passado o usuario deve ser redirecionada para página *Restaurants/NotFound*
+☑️ Possibilatar a edição dos restaurantes ao clicar no respectivo link dentro das linhas da tabela *Restaurants/List*. Que deve conter conter campo *Cuisine* como *select* e restante sendo *inputs*, a página deve permitir a rota */restaurants/Edit/{id}* e caso não encontre nenhum restaurante com o mesmo *id* o usuario será redirecionado para *Restaurants/NotFound*
 
 ☑️ Gerar as opções tag *select* */restaurants/Edit/* pelo *PageModel* da página
 
@@ -33,4 +33,24 @@ Repositório das atividades realizadas no curso ASP.NET Core fundamentals na Plu
 
 ☑️ Possibilitar a criação de um novo restaurante reutilizando página */restaurants/Edit/* e sua lógica
 
-☑️ Alterar */restaurants/Edit/* caso TempData["Message"] não seja nulo, imprima sua mensagem em um alert informando que o restaurante foi salvo com sucesso
+☑️ Alterar */restaurants/Edit/* caso *TempData["Message"]* não seja nulo, imprima sua mensagem em um mensagem informando que o restaurante foi salvo com sucesso
+
+## Atividade do modulo 5
+
+☑️ Consumir dados por um banco de dados pela *IRestaurantData* no *container injection*
+
+## Atividade do modulo 6
+
+☑️ Adicionar a função deletar restaurantes em */restaurants/Delete/* e permitir que a url possa ser processada igual as páginas anteriores
+
+☑️ Fazer *RenderSection* para *Scripts* e *Footer* 
+
+☑️ Definir *environment* para as libs e tornar que a validação de dados também ocorra no lado do cliente por meio da *Partial View* chamando *_ValidationScriptsPartial* em uma *section*
+
+☑️ Formular *View Component* para exibir a contagem total de restaurantes por todo as *views*  
+
+☑️ Transformar a tabela de */restaurants/List/* em uma *Partial View* de paineis para cada restaurante
+
+
+
+
