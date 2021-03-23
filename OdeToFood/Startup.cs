@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace OdeToFood
 {
     public class Startup
@@ -31,7 +32,7 @@ namespace OdeToFood
             });
 
             services.AddScoped<IRestaurantData, SqlRestaurantData>();
-            services.AddRazorPages().AddRazorRuntimeCompilation();
+            services.AddRazorPages().AddRazorRuntimeCompilation().AddControllersAsServices();
       
         }
 
@@ -51,6 +52,7 @@ namespace OdeToFood
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseNodeModules();
 
             app.UseRouting();
 
@@ -59,6 +61,7 @@ namespace OdeToFood
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
         }
     }

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - OdeToFood</title>
     <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" />
+        <link href="~/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+        <link href="~/node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
@@ -51,22 +51,23 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            @RenderBody()
+            @RenderBody()            
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            <vc:restaurant-count></vc:restaurant-count>
-            @RenderSection("footer", required: false)
-            &copy; 2021 - OdeToFood - <a asp-area="" asp-page="/Privacy">Privacy</a>
-            <img src="~/OdeToFood.png" alt="Alternate Text" />
 
+    <footer class="border-top text-muted">
+        <div class="container">
+            @RenderSection("footer", required: false)
+            <vc:restaurant-count></vc:restaurant-count>
+            &copy; 2021 - OdeToFood  - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <img src="/OdeToFood.png" />
         </div>
     </footer>
     <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/node_modules/jquery/dist/jquery.js"></script>
+        <script src="~/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
         <script src="~/js/site.js" asp-append-version="true"></script>
 
     </environment>

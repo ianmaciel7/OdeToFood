@@ -19,15 +19,18 @@
     </div>
 </form>
 
-@foreach (var restaurant in Model.Restaurants)
-{
-    <partial name="_Summary" model="restaurant" />
-    <br />
-}
+<div>
+    @foreach (var restaurant in Model.Restaurants)
+    {
+        <partial name="_Summary" model="restaurant" />
+        <br />
+    }
 
+<div>
+    <a class="btn btn-primary" asp-page="./Edit">Add New</a>
+</div>
 
-
-<a class="btn btn-primary" asp-page="./Edit">Add New</a>
+</div>
 
 
 
