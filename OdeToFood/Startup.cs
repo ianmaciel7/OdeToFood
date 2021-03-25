@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -9,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace OdeToFood
 {
@@ -24,8 +27,15 @@ namespace OdeToFood
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IRestaurantData,InMemoryRestaurantData>();
-            services.AddRazorPages();
+            services.AddDbContextPool<OdeToFoodDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("OdeToFoodDb"));
+            });
+
+            services.AddScoped<IRestaurantData, SqlRestaurantData>();
+            //services.AddScoped<IRestaurantData, InMemoryRestaurantData>();
+            services.AddRazorPages().AddRazorRuntimeCompilation().AddControllersAsServices();
+      
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,8 +52,12 @@ namespace OdeToFood
                 app.UseHsts();
             }
 
+            app.Use(SayHelloMiddleWare);
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseNodeModules();
+            app.UseCookiePolicy();
 
             app.UseRouting();
 
@@ -52,7 +66,24 @@ namespace OdeToFood
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
+        }
+
+        private RequestDelegate SayHelloMiddleWare(RequestDelegate next)
+        {
+            return async ctx =>
+            {
+                if (ctx.Request.Path.StartsWithSegments("/hello"))
+                {
+                    await ctx.Response.WriteAsync("Hello, World!");
+                }
+                else
+                {
+                    await next(ctx);                    
+                }
+                
+            };
         }
     }
 }
