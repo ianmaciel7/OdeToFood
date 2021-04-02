@@ -51,6 +51,20 @@ Repositório das atividades realizadas no curso ASP.NET Core fundamentals na Plu
 
 ☑️ Transformar a tabela de */restaurants/List/* em uma Partial View de paineis para cada restaurante
 
+## Atividade do modulo 7
+
+☑️ Criar API e consumir os dados na construção de um tabela
+
+## Atividade do modulo 8
+
+☑️ Criar middleware para imprimir console do navegador "hello"
+
+## Atividade do modulo 9
+
+☑️ Implantar aplicação no ISS
+
+
+
 
 
 
